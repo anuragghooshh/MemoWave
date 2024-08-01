@@ -16,13 +16,30 @@ const Paper = styled.div`
   min-height: 100%;
 `;
 
+const Header = styled.header`
+  margin: 20px 0;
+`;
+
+const Paragraph = styled.p`
+  margin: 0;
+  padding: 0;
+`;
+
+const H4 = styled.h4`
+  margin: 0;
+  padding: 0;
+`;
+
 function App() {
   return (
     <Container className="row flex-center flex-middle">
       <Paper className="border border-primary padding-small margin-small no-responsive">
-        <h3 className="margin-small">MemoWave</h3>
+        <Header className="header">
+          <H4>MemoWave</H4>
+          <Paragraph>By Anurag!</Paragraph>
+        </Header>
         <AddToDo />
-        <ToDoList/>
+        <ToDoList />
       </Paper>
     </Container>
   );
