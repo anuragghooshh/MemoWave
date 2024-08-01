@@ -4,9 +4,11 @@ import { Provider } from "react-redux";
 import App from "./components/App.jsx";
 import rootReducer from './reducers'
 import "papercss/dist/paper.min.css";
-import {legacy_createStore as createStore} from 'redux'
+import { configureStore } from "@reduxjs/toolkit";
 
-const store = createStore(rootReducer);
+const store = configureStore({
+  reducer: rootReducer,
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

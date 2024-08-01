@@ -10,14 +10,16 @@ const Container = styled.div`
 `;
 
 const Paper = styled.div`
-  width: 480px !important;
+  width: 100% !important;
+  max-width: 480px;
   background-color: white;
+  min-height: 100%;
 `;
 
 function App() {
   return (
     <Container className="row flex-center flex-middle">
-      <Paper className="border border-primary padding-large margin-large no-responsive">
+      <Paper className="border border-primary padding-small margin-small no-responsive">
         <h3 className="margin-small">MemoWave</h3>
         <AddToDo />
         <ToDoList/>

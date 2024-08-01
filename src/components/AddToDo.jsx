@@ -16,7 +16,6 @@ const AddToDo = ({ onSubmit }) => {
       onSubmit({
         id: uuidv4(),
         text: inputRef.current.value,
-        completed: false,
       });
       inputRef.current.value = "";
     }
@@ -25,10 +24,10 @@ const AddToDo = ({ onSubmit }) => {
   return (
     <div>
       <form onSubmit={handleSubmit} className="row">
-        <div className="col padding-right-small">
+        <div className="padding-right-small">
           <input type="text" placeholder="New Todo" ref={inputRef} />
         </div>
-        <div className="col padding-left-small">
+        <div className=" padding-left-small">
           <input type="submit" value="Add" className="paper-btn btn-small" />
         </div>
       </form>

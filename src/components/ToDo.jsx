@@ -14,7 +14,7 @@ const Item = styled.li`
   &:before {
     content: "";
   }
-  text-decoration: ${({ completed }) => (completed ? 'line-through' : 'none')};
+  text-decoration: ${({ completed }) => (completed == 'true' ? 'line-through' : 'none')};
 `;
 
 const ToDo = ({ id, text, completed, onItemClick, count }) => (
@@ -22,7 +22,7 @@ const ToDo = ({ id, text, completed, onItemClick, count }) => (
     className={`padding-small margin-small ${completed ? 'background-primary' : 'shadow shadow-hover'}`}
     key={id}
     onClick={() => onItemClick(id)}
-    completed={completed}
+    completed={`${completed}`}
   >
     {count} - {text}
   </Item>

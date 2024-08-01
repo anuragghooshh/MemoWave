@@ -15,6 +15,9 @@ const todo = (state = storedTodos, action) => {
       });
       localStorage.setItem("todos", JSON.stringify(modifiedTodos));
       return modifiedTodos;
+    case ActionTypes.CLEAR_TODOS:
+      localStorage.removeItem("todos");
+      return [];
     default:
       return state;
   }
