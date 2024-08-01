@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import AddToDo from "./AddToDo";
+import ToDoList from "./ToDoList";
 
 const Container = styled.div`
   background-color: #f1f1f1;
@@ -17,8 +18,9 @@ function App() {
   return (
     <Container className="row flex-center flex-middle">
       <Paper className="border border-primary padding-large margin-large no-responsive">
-        <h3 className="margin-small">PaperTodo</h3>
+        <h3 className="margin-small">MemoWave</h3>
         <AddToDo />
+        <ToDoList/>
       </Paper>
     </Container>
   );

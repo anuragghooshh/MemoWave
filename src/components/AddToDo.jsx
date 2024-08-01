@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import { useId } from "react";
 import { connect } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 import addTodo from "../actions/addToDo";
 
 const mapDispatchToProps = (dispatch) => ({
@@ -9,13 +9,12 @@ const mapDispatchToProps = (dispatch) => ({
 
 const AddToDo = ({ onSubmit }) => {
   const inputRef = useRef(null);
-  const id = useId();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputRef.current.value.trim()) {
       onSubmit({
-        id,
+        id: uuidv4(),
         text: inputRef.current.value,
         completed: false,
       });
@@ -27,11 +26,7 @@ const AddToDo = ({ onSubmit }) => {
     <div>
       <form onSubmit={handleSubmit} className="row">
         <div className="col padding-right-small">
-          <input
-            type="text"
-            placeholder="New Todo"
-            ref={inputRef}
-          />
+          <input type="text" placeholder="New Todo" ref={inputRef} />
         </div>
         <div className="col padding-left-small">
           <input type="submit" value="Add" className="paper-btn btn-small" />
