@@ -10,6 +10,14 @@ const manifestForPlugin = {
     short_name: "Memowave",
     description:
       "The lighweight paper-based to-do list developed by Anurag Ghosh!",
+    share_target: {
+      action: "/share",
+      params: {
+        title: "text",
+        text: "text",
+        url: "url",
+      },
+    },
     icons: [
       {
         src: "pwa-192x192.png",
