@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import ToDo from "./ToDo";
@@ -36,10 +36,12 @@ const Message = ({ filter }) => {
   let text;
   switch (filter) {
     case ActionTypes.FILTER_COMPLETED:
-      text = "Everything's still on the to-do list... because who likes finishing things anyway?";
+      text =
+        "Everything's still on the to-do list... because who likes finishing things anyway?";
       break;
     case ActionTypes.FILTER_ACTIVE:
-      text = "Mission accomplished: nothing to do... or maybe just nothing completed yet!";
+      text =
+        "Mission accomplished: nothing to do... or maybe just nothing completed yet!";
       break;
     default:
       text = "The to-do list is as empty as Walter White's conscience.";
@@ -49,7 +51,7 @@ const Message = ({ filter }) => {
 };
 
 const ToDoList = ({ todos, filter }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = React.useState(1);
   const itemsPerPage = 5;
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -75,14 +77,27 @@ const ToDoList = ({ todos, filter }) => {
       {todos.length === 0 && <Message filter={filter} />}
       <List className="child-borders">
         {currentTodos.map((todo, index) => (
-          <ToDo className="row" key={todo.id} {...todo} count={index + 1 + indexOfFirstItem} />
+          <ToDo
+            className="row"
+            key={todo.id}
+            {...todo}
+            count={index + 1 + indexOfFirstItem}
+          />
         ))}
       </List>
       <PaginationControls>
-        <button className="paper-btn btn-small" onClick={handlePreviousPage} disabled={currentPage === 1}>
+        <button
+          className="paper-btn btn-small"
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+        >
           Previous
         </button>
-        <button className="paper-btn btn-small" onClick={handleNextPage} disabled={currentPage === totalPages}>
+        <button
+          className="paper-btn btn-small"
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+        >
           Next
         </button>
       </PaginationControls>

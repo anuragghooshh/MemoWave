@@ -15,6 +15,18 @@ const todo = (state = storedTodos, action) => {
       });
       localStorage.setItem("todos", JSON.stringify(modifiedTodos));
       return modifiedTodos;
+    case ActionTypes.EDIT_TODO:
+      let editedTodos = state.map((todo) => {
+        if (todo.id === action.id)
+          return Object.assign({}, todo, { text: action.text });
+        return todo;
+      });
+      localStorage.setItem("todos", JSON.stringify(editedTodos));
+      return editedTodos;
+    case ActionTypes.DELETE_TODO:
+      const filteredTodos = state.filter((todo) => todo.id !== action.id);
+      localStorage.setItem("todos", JSON.stringify(filteredTodos));
+      return filteredTodos;
     case ActionTypes.CLEAR_TODOS:
       localStorage.removeItem("todos");
       return [];
